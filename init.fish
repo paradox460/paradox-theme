@@ -1,13 +1,13 @@
 if status --is-interactive
-  set fish_color_autosuggestion 808080
-  set fish_color_command --bold green
-  set fish_color_cwd yellow
-  set fish_color_cwd_root --bold red
-  set fish_color_normal white
-  set fish_color_param --bold blue
-  set fish_color_quote --bold cyan
-  set fish_color_search_match magenta
-  set fish_color_valid_path --underline magenta
+  set -g fish_color_autosuggestion 808080
+  set -g fish_color_command --bold green
+  set -g fish_color_cwd yellow
+  set -g fish_color_cwd_root --bold red
+  set -g fish_color_normal white
+  set -g fish_color_param --bold blue
+  set -g fish_color_quote --bold cyan
+  set -g fish_color_search_match magenta
+  set -g fish_color_valid_path --underline magenta
 
   # Git prompt options
   set -g __fish_git_prompt_showstashstate true
