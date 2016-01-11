@@ -3,15 +3,15 @@ function fish_prompt
     # Colorize the CWD depending on permissions
     switch $USER
       case root
-        set -g paradox_prompt_pwd (set_color $fish_color_cwd_root)
-        set -g paradox_prompt_character (echo -s (set_color red) "!")
+        set -g __paradox_prompt_pwd (set_color $fish_color_cwd_root)
+        set -g __paradox_prompt_character (echo -s (set_color red) "!")
       case '*'
-        set -g paradox_prompt_pwd (set_color $fish_color_cwd)
-        set -g paradox_prompt_character (echo -s (set_color normal) "\$")
+        set -g __paradox_prompt_pwd (set_color $fish_color_cwd)
+        set -g __paradox_prompt_character (echo -s (set_color normal) "\$")
     end
 
     function __paradox_pwd
-      echo -s "$paradox_prompt_pwd" (prompt_pwd)
+      echo -s "$__paradox_prompt_pwd" (prompt_pwd)
     end
 
     function __paradox_status
@@ -21,6 +21,6 @@ function fish_prompt
     end
 
 
-    echo -e -s (__paradox_pwd) (set_color normal) (set_color yellow) (__fish_git_prompt) (__paradox_git_hash) (__paradox_status) (set_color normal) "\n$paradox_prompt_character "
+    echo -e -s (__paradox_pwd) (__fish_git_prompt) (__paradox_git_hash) (__paradox_status) (set_color normal) "\n$__paradox_prompt_character "
   end
 end
