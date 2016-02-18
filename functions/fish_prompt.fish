@@ -21,6 +21,6 @@ function fish_prompt
     end
 
 
-    echo -e -s (__paradox_pwd) (__fish_git_prompt) (__paradox_git_hash) (__paradox_status) (set_color normal) "\n$__paradox_prompt_character "
+    echo -n -e -s (__paradox_pwd) (__fish_git_prompt) (__paradox_git_hash) (__paradox_status) (set_color normal) "\n$__paradox_prompt_character "
   end
 end
