@@ -6,8 +6,10 @@ if status --is-interactive
   set -g fish_color_normal white
   set -g fish_color_param --bold blue
   set -g fish_color_quote --bold cyan
-  set -g fish_color_search_match magenta
-  set -g fish_color_valid_path --underline magenta
+  set -g fish_color_search_match black --background=blue
+  set -g fish_color_valid_path cyan --underline
+  set -g fish_color_operator magenta
+  set -g fish_color_redirection brown
 
   # Git prompt options
   set -g __fish_git_prompt_showstashstate true
