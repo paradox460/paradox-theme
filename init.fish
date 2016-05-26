@@ -1,15 +1,26 @@
 if status --is-interactive
-  set -g fish_color_autosuggestion 808080
-  set -g fish_color_command --bold green
-  set -g fish_color_cwd yellow
-  set -g fish_color_cwd_root --bold red
+  # Feel free to override these as needed, generally they respect the variable server, with some exceptions
   set -g fish_color_normal white
-  set -g fish_color_param --bold blue
-  set -g fish_color_quote --bold cyan
-  set -g fish_color_search_match black --background=blue
-  set -g fish_color_valid_path cyan --underline
-  set -g fish_color_operator magenta
+  set -g fish_color_command --bold green
+  set -g fish_color_quote cyan
   set -g fish_color_redirection brown
+  set -g fish_color_end A3685A
+  set -g fish_color_error --bold --underline red
+  set -g fish_color_param blue
+  set -g fish_color_comment 969896
+  set -g fish_color_match magenta
+  set -g fish_color_search_match white --background=373B41
+  set -g fish_color_operator DE935F
+  set -g fish_color_escape cyan
+  set -g fish_color_cwd yellow
+  set -g fish_color_autosuggestion 808080
+  # set -g fish_color_user
+  # set -g fish_color_host
+  set -g fish_pager_color_prefix cyan
+  set -g fish_pager_color_completion white
+  set -g fish_pager_color_description 808080
+  set -g fish_pager_color_progress blue
+  set -g fish_pager_color_secondary --background=282A2E
 
   # Git prompt options
   set -g __fish_git_prompt_showstashstate true
@@ -39,4 +50,12 @@ if status --is-interactive
       end
     end
   end
+
+  # Fix colors
+  # Ensures colors are always base16
+  # If you don't like, comment this section out
+  if not set -q paradox_theme_colors
+    set -g paradox_theme_colors tomorrow.dark
+  end
+  eval sh $HOME/.config/fish/fundle/paradox460/paradox-theme/base16-shell/base16-$paradox_theme_colors.sh
 end
