@@ -35,8 +35,8 @@ if status --is-interactive
   set -g __fish_git_prompt_color_cleanstate --bold green
 
   function __paradox_command_separator -e fish_postexec
-    if type jot >/dev/null ^/dev/null
-      set -l last_status $status
+    set -l last_status $status
+    if type -q jot
       if test $last_status -ne 0
         set __paradox_status_color (set_color red)
         set __paradox_status_string "┫$last_status┣"

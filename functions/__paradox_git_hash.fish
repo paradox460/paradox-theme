@@ -1,7 +1,7 @@
 function __paradox_git_hash --description "Get the current git commit hash, if we're in a git working tree"
   set -l git_command 'git rev-parse --is-inside-work-tree --short HEAD ^/dev/null'
 
-  if type gtimeout >/dev/null ^/dev/null
+  if type -q gtimeout
     set  -l git_command 'timeout 1' git_command
   end
 
