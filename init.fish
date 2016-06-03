@@ -39,10 +39,10 @@ if status --is-interactive
     if type -q jot
       if test $last_status -ne 0
         set __paradox_status_color (set_color red)
-        set __paradox_status_string "┫$last_status┣"
-        set __paradox_status_string_width (echo $__paradox_status_string | command wc -m ^/dev/null)
-        set __paradox_status_left_width (math \($COLUMNS /2 \) - $__paradox_status_string_width)
-        set __paradox_status_right_width (math $COLUMNS - \($__paradox_status_left_width + $__paradox_status_string_width - 1\))
+        set __paradox_status_string "┫ $last_status ┣"
+        set __paradox_status_string_width (string length $__paradox_status_string)
+        set __paradox_status_left_width (math \($COLUMNS / 2 \) - $__paradox_status_string_width)
+        set __paradox_status_right_width (math $COLUMNS - \($__paradox_status_left_width + $__paradox_status_string_width\))
         echo -s $__paradox_status_color (jot -b '━' -s "" $__paradox_status_left_width ^/dev/null) $__paradox_status_string (jot -b '━' -s "" $__paradox_status_right_width ^/dev/null)
       else
         set __paradox_status_color (set_color green)
