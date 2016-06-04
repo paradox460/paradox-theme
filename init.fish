@@ -34,6 +34,9 @@ if status --is-interactive
   set -g __fish_git_prompt_color_upstream_behind violet
   set -g __fish_git_prompt_color_cleanstate --bold green
 
+  # Switch describe style since we already have something that shows the ref
+  set -g  __fish_git_prompt_describe_style branch
+
   function __paradox_command_separator -e fish_postexec
     set -l last_status $status
     if type -q jot
