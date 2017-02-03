@@ -4,16 +4,16 @@ function __paradox_command_duration --description "Get the current command durat
     set -l x (math "scale=2;$CMD_DURATION / 1000")
     set -l seconds (math "$x % 60")
     set -l timestamp (printf "%.02gs" $seconds)
-    if test $x -ge 60
+    if test (math "$x >= 60") -eq 1
       set -l x (math "$x / 60")
       set -l minutes (math "$x % 60")
       set -l timestamp (printf "%dm" $minutes) $timestamp
-      if test $x -ge 60
+      if test (math "$x >= 60") -eq 1
         set -l x (math "$x / 60")
         set -l hours (math "$x % 24")
         set -l timestamp (printf "%dh" $hours) $timestamp
 
-        if test $x -ge 24
+        if test (math "$x >= 24") -eq 1
           set -l days (math "$x / 24")
           set -l timestamp (printf "%dd" $days) $timestamp
 
