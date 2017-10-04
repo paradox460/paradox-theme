@@ -5,7 +5,6 @@
 This is my fish shell theme. There are many like it, but this one is mine. Its basically what I've come to like over several years. Some, but not all of its features include:
 
 + **Long-running command timer:** See how long, in wall-time, a command took to run.
-+ **Ruby Version:** Displays the current ruby version in your shell. Changes in response to `.ruby-version` and such
 + **Visual Git status:** Icons and git status oh my
 + **Current time**
 + **Command separators:** Horizontal Rules between commands, and bonus, they change colors depending on command output
