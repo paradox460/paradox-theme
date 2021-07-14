@@ -14,13 +14,6 @@ function fish_prompt
       echo -s "$__paradox_prompt_pwd" (prompt_pwd)
     end
 
-    function __paradox_status
-      if test $status -ne 0
-        echo -s (set_color $fish_color_status) "[$last_status]"
-      end
-    end
-
-
-    echo -n -e -s (__paradox_pwd) (__fish_git_prompt) (__paradox_git_hash) (__paradox_status) (set_color normal) "\n$__paradox_prompt_character "
+    echo -n -e -s (__paradox_pwd) (__fish_git_prompt) (__paradox_git_hash) (set_color normal) "\n$__paradox_prompt_character "
   end
 end
