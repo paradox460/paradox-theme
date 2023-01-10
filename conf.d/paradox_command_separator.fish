@@ -16,5 +16,5 @@ function __paradox_command_separator -e fish_postexec
   # Calculate width of rule
   set -l prefix_width (string length "$status_prefix")
   set -l width (math $COLUMNS - $prefix_width)
-  echo -s $status_color $status_prefix (string repeat -n $width '━')
+  echo -s \n$status_color $status_prefix (string repeat -n $width '━')
 end
