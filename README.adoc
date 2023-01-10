@@ -63,6 +63,10 @@ The following additional variables are used for colorizing parts of the theme:
   The color of a separator when the previous command had a `0` exit status
 `paradox_status_color_error`:: Separator color when previous command had a non-zero exit status
 
+You can also set variables for `__(light|dark)__base00-base0F`, to tune the color schemes used by this shell.
+
+If you customize your colors, you probably want to set the `paradox_disable_scheme_changes` variable, otherwise your custom colors could be clobbered.
+
 [#b16ss]
 == Base16-shell support
 
@@ -100,6 +104,9 @@ That version of the theme was a bit slower, used older fish features that are no
 
 `paradox_color_scheme`:: `_light|dark_` Locks the color scheme, regardless of what the system reports. Changing causes color scheme reevaluation.
 `paradox_disable_iterm_colors`:: `_boolean_` Disables changing iTerm2 colors
+`paradox_disable_scheme_changes`:: `_boolean_` Disables any color source values, only uses the values currently defined in the `base00-base0F` variables.
++
+This is useful if you want to use a specific base16 color scheme, but don't want to load the whole shell script for it.
 `paradox_refresh_scheme_on_prompt`:: `_boolean_` Triggers a color scheme refresh on _every_ paint of the prompt.
 
 TIP: This theme also has a few custom color variables. See <<Colors>>.

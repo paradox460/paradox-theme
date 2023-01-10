@@ -1,6 +1,6 @@
 function paradox_change_color_scheme --description "Changes the color scheme, depending on the current system color scheme (macos) or what the $paradox_color_scheme variable is set to. Defaults to 'dark' if all else fails" --on-variable paradox_color_scheme --on-event paradox_change_color_scheme
-  if test -n "$BASE16_SHELL_ENABLE_VARS"
-    # We're using base16, don't change anything; call set colors once
+  if test -n "$BASE16_SHELL_ENABLE_VARS"; or contains -- "$paradox_disable_scheme_changes" true yes 1
+    # We're using base16 or have disabled scheme changes don't change any color vars; call set colors once
     paradox_set_colors
     return
   end
