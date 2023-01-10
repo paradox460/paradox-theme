@@ -15,6 +15,25 @@ set base0D "81a2be"
 set base0E "b294bb"
 set base0F "a3685a"
 
+if test -n "$BASE16_SHELL_ENABLE_VARS"
+  set base00 $BASE16_COLOR_00_HEX
+  set base01 $BASE16_COLOR_01_HEX
+  set base02 $BASE16_COLOR_02_HEX
+  set base03 $BASE16_COLOR_03_HEX
+  set base04 $BASE16_COLOR_04_HEX
+  set base05 $BASE16_COLOR_05_HEX
+  set base06 $BASE16_COLOR_06_HEX
+  set base07 $BASE16_COLOR_07_HEX
+  set base08 $BASE16_COLOR_08_HEX
+  set base09 $BASE16_COLOR_09_HEX
+  set base0A $BASE16_COLOR_0A_HEX
+  set base0B $BASE16_COLOR_0B_HEX
+  set base0C $BASE16_COLOR_0C_HEX
+  set base0D $BASE16_COLOR_0D_HEX
+  set base0E $BASE16_COLOR_0E_HEX
+  set base0F $BASE16_COLOR_0F_HEX
+end
+
 
 # Set fish color variables
 set -g fish_color_normal $base05
@@ -62,7 +81,7 @@ set -g paradox_status_color_normal $base0B
 set -g paradox_status_color_error $base08
 
 # If we're using iTerm2, set terminal colors here
-if test -n "$ITERM_SESSION_ID"; and not contains -- "$paradox_disable_iterm_colors" yes true 1
+if test -n "$ITERM_SESSION_ID"; and test -n "$BASE16_THEME"; and not contains -- "$paradox_disable_iterm_colors" yes true 1
   set -l iterm_colors \
     "fg=$base05"      \
     "bg=$base00"      \

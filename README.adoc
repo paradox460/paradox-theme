@@ -1,3 +1,4 @@
+= Paradox's Theme
 
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -11,7 +12,6 @@ endif::[]
 
 image::screenshot.png[A screenshot of the theme in action]
 
-= Paradox Theme
 
 This is the latest revision of my terminal theme, for {fish}. It has evolved over the years to its current form.
 
@@ -19,17 +19,24 @@ Many of its features come from {fish} itself, and are lightly customized here
 
 == Features:
 Visual Git Status:: Current branch, tracking, current sha
+
 Prompt Timestamp:: Lets you see when the prompt was rendered
+
 Command Separators:: Big thick lines that clearly deliniate when a command started and ended
 +
 They also show exit statuses, with support for
 `pipestatus`
+
 Full Vim Mode Support:: Just add `fish_vi_mode` to your fish configuration, and everything will work as it should
+
 Customizable Colors:: Don't like my color choices? Pick your own. I try to respect fish colors wherever possible, and have a few custom variables for places it needs to be extended
 +
 See <<colors>> for details.
-Automatic iTerm2 colors:: If you're on macOS, iTerm 2 colors are automatically set to the color scheme
+
+Automatic iTerm2 colors:: If you're on macOS, iTerm 2 colors are automatically set to the color scheme +
 See <<iTerm2 colors>> for details.
+
+Supports https://github.com/tinted-theming/base16-shell/[Base16-shell]:: If you use the https://github.com/tinted-theming/base16-shell/[Base16-shell] project's color schemes, you can use any color scheme they have available. See <<b16ss,Base16-shell support>> for details
 
 == Installation
 === Fisher (easy)
@@ -54,7 +61,10 @@ The following additional variables are used for colorizing parts of the theme:
   The color of a separator when the previous command had a `0` exit status
 `paradox_status_color_error`:: Separator color when previous command had a non-zero exit status
 
-TIP: If you have another https://github.com/tinted-theming/home[Base16] theme you like, you can override the varaibles `base00` to `base0f` with your new colors, and everything _should_ just work!
+[#b16ss]
+=== Base16-shell support
+
+If you have another https://github.com/tinted-theming/home[Base16] theme you like, you can load the https://github.com/tinted-theming/base16-shell/[shell version] of the color scheme, set the `BASE16_SHELL_ENABLE_VARS` envar, and this theme will now use its colors.
 
 === iTerm2 colors
 
