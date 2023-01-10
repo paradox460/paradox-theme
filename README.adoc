@@ -118,3 +118,4 @@ Additionally, the following third-party configuration variables impact this them
 = Useful Functions
 
 `paradox_change_color_scheme`:: Refreshes the color scheme, setting it to the "right" one based on current configurations
+`paradox_set_colors`:: Sets the shell colors based on the values currently found in `base00-base0F` variables. Doesn't change any color source vars.
