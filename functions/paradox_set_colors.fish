@@ -44,8 +44,48 @@ function paradox_set_colors
   set -g paradox_status_color_normal $base0B
   set -g paradox_status_color_error $base08
 
+  # Check to see if base16 theme is already set, or if the user has disabled colors, if so then bail
+  if test -n "$BASE16_THEME"; or contains -- "$paradox_disable_custom_colors" yes true 1
+    return
+  end
+
+  # 16 colors
+  __set_term_color 0 $base00
+  __set_term_color 1 $base08
+  __set_term_color 2 $base0B
+  __set_term_color 3 $base0A
+  __set_term_color 4 $base0D
+  __set_term_color 5 $base0E
+  __set_term_color 6 $base0C
+  __set_term_color 7 $base05
+  __set_term_color 8 $base03
+  __set_term_color 9 $base08
+  __set_term_color 10 $base0B
+  __set_term_color 11 $base0A
+  __set_term_color 12 $base0D
+  __set_term_color 13 $base0E
+  __set_term_color 14 $base0C
+  __set_term_color 15 $base07
+
+  # 256 colors
+  __set_term_color 16 $base09
+  __set_term_color 17 $base0F
+  __set_term_color 18 $base01
+  __set_term_color 19 $base02
+  __set_term_color 20 $base04
+  __set_term_color 21 $base06
+
+  # Background, foreground, and cursor
+  __set_term_var 10 $base05 # fg
+  __set_term_var 11 $base00 # bg
+  if string match -q -- "rxvt*" $TERM
+    __set_term_var 708 $base00 # rxvt's internal border
+  end
+
+  # __set_term_custom 12 ";7" # reverse video cursor
+
   # If we're using iTerm2, set terminal colors here
-  if test -n "$ITERM_SESSION_ID"; and test -z "$BASE16_THEME"; and not contains -- "$paradox_disable_iterm_colors" yes true 1
+  if test -n "$ITERM_SESSION_ID"
     set -l iterm_colors \
       "fg=$base05"      \
       "bg=$base00"      \

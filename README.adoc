@@ -72,12 +72,15 @@ If you customize your colors, you probably want to set the `paradox_disable_sche
 
 If you have another https://github.com/tinted-theming/home[Base16] theme you like, you can load the https://github.com/tinted-theming/base16-shell/[shell version] of the color scheme, set the `BASE16_SHELL_ENABLE_VARS` envar, and this theme will now use its colors.
 
-== iTerm2 colors
+== Terminal Color Palettes
 
-NOTE: Non-iTerm2 terminals do not need to worry about this configuration
+The theme will automatically set your terminal's colors to match the internally used color palette, so that third party programs (such as those that use curses) will render with your colors.
+If you would like to disable this feature, set the variable `paradox_disable_custom_colors` to `true`
 
-The theme will automatically set iTerm2 colors to match the internally used color palette, so that third party programs (such as those that use curses) will render with your colors.
-If you would like to disable this feature, set the variable `paradox_disable_iterm_colors` to `true`
+Efforts have been made to support a wide range of terminals.
+
+=== Tmux
+If you are using tmux 3.3 or newer, you need to set the `allow-passthrough` configuration value to `on` to allow color codes to pass through to the underlying terminal emulator.
 
 [#ldm]
 == Light/Dark Mode
@@ -89,21 +92,12 @@ Alternatively, you can call `paradox_change_color_scheme` at any time to check a
 
 If you want to lock your theme to one color mode, or are on a non-macos system, set the variable `paradox_color_scheme` to either `light` or `dark`. The theme should automatically refresh whenever this variable is changed
 
-NOTE: Currently only iTerm2's background color is automatically changed with the scheme. If you use a different terminal, check to see if it supports the ability to detect your system color scheme, or open an issue here.
-
 If you are using a <<b16ss,custom base16 color scheme>>, automatic color changing is disabled. If this is something you'd really like to see, open an issue here.
-
-
-= Legacy theme
-There is an older iteration of this theme, on the https://github.com/paradox460/paradox-theme/tree/v1[v1 branch]. It is no longer maintained, and is only useful for reference purposes.
-
-That version of the theme was a bit slower, used older fish features that are now obsolete, and had a few features that never really worked right (such as command timers).
 
 = All configuration options
 
-
 `paradox_color_scheme`:: `_light|dark_` Locks the color scheme, regardless of what the system reports. Changing causes color scheme reevaluation.
-`paradox_disable_iterm_colors`:: `_boolean_` Disables changing iTerm2 colors
+`paradox_disable_custom_colors`:: `_boolean_` Disables changing iTerm2 colors
 `paradox_disable_scheme_changes`:: `_boolean_` Disables any color source values, only uses the values currently defined in the `base00-base0F` variables.
 +
 This is useful if you want to use a specific base16 color scheme, but don't want to load the whole shell script for it.
@@ -119,3 +113,10 @@ Additionally, the following third-party configuration variables impact this them
 
 `paradox_change_color_scheme`:: Refreshes the color scheme, setting it to the "right" one based on current configurations
 `paradox_set_colors`:: Sets the shell colors based on the values currently found in `base00-base0F` variables. Doesn't change any color source vars.
+
+---
+
+= Legacy theme
+There is an older iteration of this theme, on the https://github.com/paradox460/paradox-theme/tree/v1[v1 branch]. It is no longer maintained, and is only useful for reference purposes.
+
+That version of the theme was a bit slower, used older fish features that are now obsolete, and had a few features that never really worked right (such as command timers).
