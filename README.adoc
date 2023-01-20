@@ -31,10 +31,10 @@ Full Vim Mode Support:: Just add `fish_vi_mode` to your fish configuration, and 
 
 Customizable Colors:: Don't like my color choices? Pick your own. I try to respect fish colors wherever possible, and have a few custom variables for places it needs to be extended
 +
-See <<colors>> for details.
+See <<Colors>> for details.
 
-Automatic iTerm2 colors:: If you're on macOS, iTerm 2 colors are automatically set to the color scheme +
-See <<iTerm2 colors>> for details.
+Automatic terminal colors:: If you're using a compatible terminal, your terminal's colors will be set _automatically_ +
+See <<tcp>> for details.
 
 Supports https://github.com/tinted-theming/base16-shell/[Base16-shell]:: If you use the https://github.com/tinted-theming/base16-shell/[Base16-shell] project's color schemes, you can use any color scheme they have available. See <<b16ss,Base16-shell support>> for details
 
@@ -72,6 +72,7 @@ If you customize your colors, you probably want to set the `paradox_disable_sche
 
 If you have another https://github.com/tinted-theming/home[Base16] theme you like, you can load the https://github.com/tinted-theming/base16-shell/[shell version] of the color scheme, set the `BASE16_SHELL_ENABLE_VARS` envar, and this theme will now use its colors.
 
+[#tcp]
 == Terminal Color Palettes
 
 The theme will automatically set your terminal's colors to match the internally used color palette, so that third party programs (such as those that use curses) will render with your colors.
@@ -96,14 +97,15 @@ If you are using a <<b16ss,custom base16 color scheme>>, automatic color changin
 
 = All configuration options
 
+NOTE: This doesn't contain color variables. Those are listed under <<Colors>>
+
 `paradox_color_scheme`:: `_light|dark_` Locks the color scheme, regardless of what the system reports. Changing causes color scheme reevaluation.
-`paradox_disable_custom_colors`:: `_boolean_` Disables changing iTerm2 colors
+`paradox_disable_custom_colors`:: `_boolean_` Disables changing terminal colors
 `paradox_disable_scheme_changes`:: `_boolean_` Disables any color source values, only uses the values currently defined in the `base00-base0F` variables.
 +
 This is useful if you want to use a specific base16 color scheme, but don't want to load the whole shell script for it.
 `paradox_refresh_scheme_on_prompt`:: `_boolean_` Triggers a color scheme refresh on _every_ paint of the prompt.
 
-TIP: This theme also has a few custom color variables. See <<Colors>>.
 
 Additionally, the following third-party configuration variables impact this theme:
 
