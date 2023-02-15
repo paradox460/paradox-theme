@@ -44,8 +44,8 @@ function paradox_set_colors
   set -g paradox_status_color_normal $base0B
   set -g paradox_status_color_error $base08
 
-  # Check to see if base16 theme is already set, or if the user has disabled colors, if so then bail
-  if test -n "$BASE16_THEME"; or contains -- "$paradox_disable_custom_colors" yes true 1
+  # Check to see if we're not interactive, or if base16 theme is already set, or if the user has disabled colors, if so then bail
+  if not status is-interactive; or test -n "$BASE16_THEME"; or contains -- "$paradox_disable_custom_colors" yes true 1
     return
   end
 
