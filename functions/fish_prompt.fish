@@ -7,6 +7,6 @@ function fish_prompt
       set suffix '#'
     end
 
-    echo -n -e -s (set_color $color_cwd) (prompt_pwd) (fish_vcs_prompt) (__paradox_git_hash) (set_color normal) (set_color $fish_color_normal) "\n$suffix "
+    echo -n -e -s (set_color $color_cwd) (prompt_pwd) (fish_vcs_prompt) (__paradox_git_hash) (set_color normal) (set_color $fish_color_normal) "\n" (functions -q iterm2_prompt_mark; and iterm2_prompt_mark) "$suffix "
   end
 end
