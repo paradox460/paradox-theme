@@ -27,6 +27,8 @@ Command Separators:: Big thick lines that clearly deliniate when a command start
 They also show exit statuses, with support for
 `pipestatus`
 
+They are turned off by default, see <<Enabling Command Separators>> for details
+
 Full Vim Mode Support:: Just add `fish_vi_mode` to your fish configuration, and everything will work as it should
 
 Customizable Colors:: Don't like my color choices? Pick your own. I try to respect fish colors wherever possible, and have a few custom variables for places it needs to be extended
@@ -50,6 +52,11 @@ Supports light/dark mode:: An interface is exposed to allow the theme to swap be
 . Copy or Symlink the files in `conf.d` to your `~/.config/fish/conf.d` directory
 . Copy or symlink the files in `functions` to your `~/.config/fish/functions` directory
 . Load a new fish shell up
+
+= Enabling command separators
+Some shells have intelligence around command output and whatnot, allowing you to do things like copy the output of the previous command quickly. The command separators, due to how they're printed, can get in the way of this. As such, they're off by default as of 40e53867.
+
+To reenable them, simply add `paradox_command_separator` to your fish config file.
 
 = Colors
 Default fish colors are respected, and can be overridden using any means you like; the web interface, your own configuration, or universal variables.
