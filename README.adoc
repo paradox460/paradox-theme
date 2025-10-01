@@ -20,6 +20,8 @@ Many of its features come from {fish} itself, and are lightly customized here
 = Features:
 Visual Git Status:: Current branch, tracking, current sha
 
+Visual JJ status:: If current change is empty, conflicted, or immutable, as well as the current change_id and commit_id, with colored prefixes
+
 Prompt Timestamp:: Lets you see when the prompt was rendered
 
 Command Separators:: Big thick lines that clearly deliniate when a command started and ended
@@ -66,9 +68,24 @@ The following additional variables are used for colorizing parts of the theme:
 
 `paradox_git_prompt_color_hash`::
   This sets the color of the hash display in the git info.
+`paradox_jj_prompt_color_status` ::
+  Sets the default color of the jj prompt status. This displays when your current change in jj is "odd" (empty, immutable, or in conflict)
+`paradox_jj_prompt_color_status_error` ::
+  Sets the color of the jj prompt status _if your current change is in conflict_
+`paradox_jj_prompt_color_hash` ::
+  Sets the color of the containing characters around the jj change/commit id hashes
+`paradox_jj_prompt_change_id_prefix_color_hash` ::
+  Sets the color of the jj change_id "prefix", the minimum unique characters needed to refer to a change id
+`paradox_jj_prompt_change_id_rest_color_hash` ::
+  Sets the color of the remainder of the jj change_id
+`paradox_jj_prompt_commit_id_prefix_color_hash` ::
+  Sets the color of the jj commit_id "prefix", the minimum unique characters needed to refer to a commit id
+`paradox_jj_prompt_commit_id_rest_color_hash` ::
+  Sets the color of the remainder of the jj commit_id
 `paradox_status_color_normal`::
   The color of a separator when the previous command had a `0` exit status
 `paradox_status_color_error`:: Separator color when previous command had a non-zero exit status
+
 
 You can also set variables for `__(light|dark)__base00-base0F`, to tune the color schemes used by this shell.
 

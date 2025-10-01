@@ -40,6 +40,15 @@ function paradox_set_colors
   set -g __fish_git_prompt_color_cleanstate --bold $base0B
   set -g paradox_git_prompt_color_hash $base0D --italics
 
+  # JJ stuff
+  set -g paradox_jj_prompt_color_status $base0B --bold
+  set -g paradox_jj_prompt_color_status_error $base08 --bold
+  set -g paradox_jj_prompt_color_hash $paradox_git_prompt_color_hash
+  set -g paradox_jj_prompt_change_id_prefix_color_hash $base0E --bold --italic
+  set -g paradox_jj_prompt_change_id_rest_color_hash $base0D --italic
+  set -g paradox_jj_prompt_commit_id_prefix_color_hash $base0C --bold --italic
+  set -g paradox_jj_prompt_commit_id_rest_color_hash $base0D --italic
+
   # Status line colors
   set -g paradox_status_color_normal $base0B
   set -g paradox_status_color_error $base08

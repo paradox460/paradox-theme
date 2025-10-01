@@ -16,6 +16,6 @@ function fish_prompt
     end
 
 
-    echo -n -e -s (set_color $color_cwd) (prompt_pwd) $status_blob (fish_vcs_prompt) (__paradox_git_hash) (set_color normal) (set_color $fish_color_normal) "\n"  "$suffix "(functions -q iterm2_prompt_end; and iterm2_prompt_end)
+    echo -n -e -s (set_color $color_cwd) (prompt_pwd) $status_blob (fish_vcs_prompt) (__paradox_vcs_hash) (set_color normal) (set_color $fish_color_normal) "\n"  "$suffix "(functions -q iterm2_prompt_end; and iterm2_prompt_end)
   end
 end
