@@ -15,8 +15,8 @@ set fish_cursor_visual block
 
 # Add support to change color scheme on every prompt
 if contains -- $paradox_refresh_scheme_on_prompt yes true 1
-  function paradox_refresh_scheme_on_prompt --on-event fish_prompt
-    echo "refreshing color scheme on prompt"
-    paradox_change_color_scheme
-  end
+    function paradox_refresh_scheme_on_prompt --on-event fish_prompt
+        echo "refreshing color scheme on prompt"
+        paradox_change_color_scheme
+    end
 end

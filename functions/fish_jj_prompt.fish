@@ -11,7 +11,7 @@ function fish_jj_prompt
 
     # Data from current change only
     jj show 2>/dev/null --quiet --no-patch --color=never --ignore-working-copy -r '@' \
-    --template '
+        --template '
     surround("<", ">",
       separate("",
         if(conflict, "x"),
@@ -34,22 +34,20 @@ function fish_jj_prompt
     set -l output ""
 
     if test -n "$bookmarks"
-      # Truncate bookmarks if too long
-      if test (string length -- $bookmarks) -gt 40
-        set bookmarks $bookmarks[1..40] "…"
-      end
-      set -a output (set_color $paradox_jj_prompt_bookmark_prefix_color) "(" (set_color normal) (set_color $paradox_jj_prompt_bookmark_color) $bookmarks (set_color normal) (set_color $paradox_jj_prompt_bookmark_suffix_color) ")" (set_color normal)
+        # Truncate bookmarks if too long
+        if test (string length -- $bookmarks) -gt 40
+            set bookmarks $bookmarks[1..40] "…"
+        end
+        set -a output (set_color $paradox_jj_prompt_bookmark_prefix_color) "(" (set_color normal) (set_color $paradox_jj_prompt_bookmark_color) $bookmarks (set_color normal) (set_color $paradox_jj_prompt_bookmark_suffix_color) ")" (set_color normal)
     end
 
     if test -n "$info"
-      set -l color $paradox_jj_prompt_status_color
-      if string match -q "*x*" $info
-        set color $paradox_jj_prompt_status_error_color
-      end
-      set -a output " " (set_color $color) "$info" (set_color normal)
+        set -l color $paradox_jj_prompt_status_color
+        if string match -q "*x*" $info
+            set color $paradox_jj_prompt_status_error_color
+        end
+        set -a output " " (set_color $color) "$info" (set_color normal)
     end
-
-
 
     set -a output " " (__paradox_jj_stats $stats) " " (__paradox_jj_hash $ids)
 
@@ -57,43 +55,42 @@ function fish_jj_prompt
 end
 
 function __paradox_jj_stats --description "Extracts change stats"
-  set files_changed 0
-  set insertions 0
-  set deletions 0
-  string match -r -q -g -- '(?<files_changed>\d+) files changed(?:, )?(?:(?<insertions>\d+) insertions\(\+\))?(?:, )?(?:(?<deletions>\d+) deletions\(\-\))?' $argv
-  or return 1
+    set files_changed 0
+    set insertions 0
+    set deletions 0
+    string match -r -q -g -- '(?<files_changed>\d+) files changed(?:, )?(?:(?<insertions>\d+) insertions\(\+\))?(?:, )?(?:(?<deletions>\d+) deletions\(\-\))?' $argv
+    or return 1
 
-  echo -s (set_color $paradox_jj_prompt_change_prefix_color) "{" (set_color normal) \
-    (set_color $paradox_jj_prompt_change_total_color) "$files_changed" (set_color normal) " " \
-    (set_color $paradox_jj_prompt_change_insertions_color) "+$insertions" (set_color normal) \
-    (set_color $paradox_jj_prompt_change_deletions_color) "-$deletions" (set_color normal) \
-    (set_color $paradox_jj_prompt_change_suffix_color) "}" (set_color normal)
+    echo -s (set_color $paradox_jj_prompt_change_prefix_color) "{" (set_color normal) \
+        (set_color $paradox_jj_prompt_change_total_color) "$files_changed" (set_color normal) " " \
+        (set_color $paradox_jj_prompt_change_insertions_color) "+$insertions" (set_color normal) \
+        (set_color $paradox_jj_prompt_change_deletions_color) "-$deletions" (set_color normal) \
+        (set_color $paradox_jj_prompt_change_suffix_color) "}" (set_color normal)
 end
 
 function __paradox_jj_hash --description "Get the current commit and change id for the current repo"
-  echo $argv | read -l -d' ' jj_change_id_prefix jj_change_id_rest jj_commit_id_prefix jj_commit_id_rest
-  or return 1
+    echo $argv | read -l -d' ' jj_change_id_prefix jj_change_id_rest jj_commit_id_prefix jj_commit_id_rest
+    or return 1
 
-
-  echo -s \
-    (set_color $paradox_jj_prompt_hash_color) \
-    "[" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_change_id_prefix_hash_color) \
-    "$jj_change_id_prefix" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_change_id_rest_hash_color) \
-    "$jj_change_id_rest" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_hash_color) \
-    "|" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_commit_id_prefix_hash_color) \
-    "$jj_commit_id_prefix" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_commit_id_rest_hash_color) \
-    "$jj_commit_id_rest" \
-    (set_color normal) \
-    (set_color $paradox_jj_prompt_hash_color) \
-    "]"
+    echo -s \
+        (set_color $paradox_jj_prompt_hash_color) \
+        "[" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_change_id_prefix_hash_color) \
+        "$jj_change_id_prefix" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_change_id_rest_hash_color) \
+        "$jj_change_id_rest" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_hash_color) \
+        "|" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_commit_id_prefix_hash_color) \
+        "$jj_commit_id_prefix" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_commit_id_rest_hash_color) \
+        "$jj_commit_id_rest" \
+        (set_color normal) \
+        (set_color $paradox_jj_prompt_hash_color) \
+        "]"
 end
