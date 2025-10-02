@@ -38,16 +38,24 @@ function paradox_set_colors
   set -g __fish_git_prompt_color_upstream_ahead $base08
   set -g __fish_git_prompt_color_upstream_behind $base0E
   set -g __fish_git_prompt_color_cleanstate --bold $base0B
-  set -g paradox_git_prompt_color_hash $base0D --italics
+  set -g paradox_git_prompt_hash_color $base0D --italics
 
   # JJ stuff
-  set -g paradox_jj_prompt_color_status $base0B --bold
-  set -g paradox_jj_prompt_color_status_error $base08 --bold
-  set -g paradox_jj_prompt_color_hash $paradox_git_prompt_color_hash
-  set -g paradox_jj_prompt_change_id_prefix_color_hash $base0E --bold --italic
-  set -g paradox_jj_prompt_change_id_rest_color_hash $base0D --italic
-  set -g paradox_jj_prompt_commit_id_prefix_color_hash $base0C --bold --italic
-  set -g paradox_jj_prompt_commit_id_rest_color_hash $base0D --italic
+  set -g paradox_jj_prompt_status_color $base0B --bold
+  set -g paradox_jj_prompt_status_error_color $base08 --bold
+  set -g paradox_jj_prompt_bookmark_prefix_color $base0A --bold
+  set -g paradox_jj_prompt_bookmark_color $base0E --bold
+  set -g paradox_jj_prompt_bookmark_suffix_color $base0A --bold
+  set -g paradox_jj_prompt_change_prefix_color $base0B --bold
+  set -g paradox_jj_prompt_change_total_color $base0C --bold
+  set -g paradox_jj_prompt_change_insertions_color $base0B --bold
+  set -g paradox_jj_prompt_change_deletions_color $base08 --bold
+  set -g paradox_jj_prompt_change_suffix_color $base0B --bold
+  set -g paradox_jj_prompt_hash_color $paradox_git_prompt_hash_color
+  set -g paradox_jj_prompt_change_id_prefix_hash_color $base0E --bold --italic
+  set -g paradox_jj_prompt_change_id_rest_hash_color $base0D --italic
+  set -g paradox_jj_prompt_commit_id_prefix_hash_color $base0C --bold --italic
+  set -g paradox_jj_prompt_commit_id_rest_hash_color $base0D --italic
 
   # Status line colors
   set -g paradox_status_color_normal $base0B
