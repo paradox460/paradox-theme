@@ -7,7 +7,6 @@ function fish_jj_prompt
     --template '
     bookmarks.join(" ")
     ')"
-    or return 1
 
     # Data from current change only
     jj show 2>/dev/null --quiet --no-patch --color=never --ignore-working-copy -r '@' \
@@ -30,6 +29,7 @@ function fish_jj_prompt
     diff.stat()
     ' | read -l -z -d\t info ids stats
     or return 1
+
 
     set -l output ""
 
